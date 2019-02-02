@@ -9,7 +9,7 @@ public class mapcontroller : MonoBehaviour
     //ui显示
     Text hptext;
     Text scoretext;
-    
+    Text gamenote;
     private float speed;//漂浮物飘动的速度
     private float enemytimelimit;//敌人生成间隔
     private int enemylimit;//一次生成敌人数量
@@ -19,7 +19,7 @@ public class mapcontroller : MonoBehaviour
     public GameObject star;//星星
     public GameObject bg;//亮色背景
     public GameObject bg2;//暗色背景
-    public GameObject enemy;
+    public GameObject enemy;//地方单位
     private GameObject Map;//背景
     private GameObject[] floating;//漂浮物管理
     
@@ -76,6 +76,7 @@ public class mapcontroller : MonoBehaviour
     {
         hptext = GameObject.Find("hptext").GetComponent<Text>();
         scoretext = GameObject.Find("scoretext").GetComponent<Text>();
+        gamenote = GameObject.Find("gamenote").GetComponent<Text>();
     }
     
     // Update is called once per frame
@@ -185,6 +186,7 @@ public class mapcontroller : MonoBehaviour
         if (hp <= 0)
         {
             hp = 0;
+            gamenote.text = "Game Over";
             GameObject.Find("player").SendMessage("gameover");
         }
     }

@@ -39,9 +39,6 @@ public class palyercontroller : MonoBehaviour
     {
         if (isdestroy)
         {
-            gameObject.SendMessage("destroy");
-            if (Time.realtimeSinceStartup - beftime > 2f) return;
-
             return;
         }
 
